@@ -1,0 +1,27 @@
+{
+	"name": "DS_ADLS_SOURCE_CSV_FILE",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS_CONNECTION",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "adls"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "employee_salary_dataset.csv",
+				"folderPath": "RawDatasets",
+				"fileSystem": "mycontainer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
