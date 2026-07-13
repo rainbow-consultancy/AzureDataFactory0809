@@ -5,6 +5,9 @@
 			"referenceName": "LS_ADLS_CONNECTION",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "adls"
+		},
 		"annotations": [],
 		"type": "Binary",
 		"typeProperties": {
