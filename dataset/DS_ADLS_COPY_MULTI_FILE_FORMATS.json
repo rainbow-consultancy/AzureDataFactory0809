@@ -1,0 +1,36 @@
+{
+	"name": "DS_ADLS_COPY_MULTI_FILE_FORMATS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS_CONNECTION",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"FOLDER": {
+				"type": "string"
+			},
+			"FILE": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "adls"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().FILE",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().FOLDER",
+					"type": "Expression"
+				},
+				"fileSystem": "mycontainer"
+			}
+		}
+	}
+}
