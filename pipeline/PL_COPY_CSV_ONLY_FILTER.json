@@ -36,7 +36,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "FilterCsvFiles",
+						"activity": "Wait1Sec",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -115,7 +115,7 @@
 									"parameters": {
 										"DIR_NAME": "CSV_FILES",
 										"FILE_NAME": {
-											"value": "@concat(\n    first(split(toLower(item().name), '.')), \n    '_', \n    formatDateTime(utcNow(), 'yyyyMMdd'),\n    '.csv'\n)",
+											"value": "@concat(\n    replace(first(split(toLower(item().name), '.')), ' ', '_'), \n    '_', \n    formatDateTime(utcNow(), 'yyyyMMdd'),\n    '.csv'\n)",
 											"type": "Expression"
 										}
 									}
@@ -146,6 +146,22 @@
 						"value": "@endsWith(toLower(item().name), '.csv')",
 						"type": "Expression"
 					}
+				}
+			},
+			{
+				"name": "Wait1Sec",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "FilterCsvFiles",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 10
 				}
 			}
 		],
