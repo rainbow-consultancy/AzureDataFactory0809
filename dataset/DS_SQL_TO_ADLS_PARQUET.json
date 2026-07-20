@@ -1,0 +1,32 @@
+{
+	"name": "DS_SQL_TO_ADLS_PARQUET",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS_CONNECTION",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"TRGT_FILE_NAME": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "adls"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().TRGT_FILE_NAME",
+					"type": "Expression"
+				},
+				"folderPath": "sql-raw-tables",
+				"fileSystem": "mycontainer"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
