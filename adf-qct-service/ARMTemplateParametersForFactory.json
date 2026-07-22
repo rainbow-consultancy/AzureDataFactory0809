@@ -8,8 +8,32 @@
 		"LS_ADLS_CONNECTION_accountKey": {
 			"value": ""
 		},
+		"LS_ONPREM_SQL_SERVER_password": {
+			"value": ""
+		},
 		"LS_ADLS_CONNECTION_properties_typeProperties_url": {
 			"value": "https://quantcloudstorageaccount.dfs.core.windows.net/"
+		},
+		"LS_AZURE_KEY_VAULT_properties_typeProperties_baseUrl": {
+			"value": "https://quant-secret-vault.vault.azure.net/"
+		},
+		"LS_AZURE_SQL_DATABASE_properties_typeProperties_server": {
+			"value": "quant-learning.database.windows.net"
+		},
+		"LS_AZURE_SQL_DATABASE_properties_typeProperties_database": {
+			"value": "quant-db"
+		},
+		"LS_AZURE_SQL_DATABASE_properties_typeProperties_userName": {
+			"value": "quant-user"
+		},
+		"LS_ONPREM_SQL_SERVER_properties_typeProperties_server": {
+			"value": "SandeepReddy"
+		},
+		"LS_ONPREM_SQL_SERVER_properties_typeProperties_database": {
+			"value": "QUANT_LEARNING"
+		},
+		"LS_ONPREM_SQL_SERVER_properties_typeProperties_userName": {
+			"value": "sandeep"
 		}
 	}
 }
