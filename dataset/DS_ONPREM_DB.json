@@ -1,0 +1,33 @@
+{
+	"name": "DS_ONPREM_DB",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ONPREM_SQL_SERVER",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"src_schema": {
+				"type": "string"
+			},
+			"src_table": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "OnpremSql"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().src_schema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().src_table",
+				"type": "Expression"
+			}
+		}
+	}
+}
