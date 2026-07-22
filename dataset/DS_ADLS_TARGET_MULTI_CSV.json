@@ -22,7 +22,7 @@
 					"value": "@dataset().TRGT_FILE_NAME",
 					"type": "Expression"
 				},
-				"folderPath": "ReadyDatasets",
+				"folderPath": "onprem",
 				"fileSystem": "mycontainer"
 			},
 			"columnDelimiter": ",",
