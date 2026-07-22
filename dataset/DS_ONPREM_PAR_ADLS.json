@@ -1,0 +1,32 @@
+{
+	"name": "DS_ONPREM_PAR_ADLS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS_CONNECTION",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"trgt_table": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "adls"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().trgt_table",
+					"type": "Expression"
+				},
+				"folderPath": "ONPREM-SQL-TABLES",
+				"fileSystem": "mycontainer"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
