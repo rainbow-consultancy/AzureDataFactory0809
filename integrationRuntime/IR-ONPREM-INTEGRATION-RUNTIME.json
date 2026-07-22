@@ -1,0 +1,6 @@
+{
+	"name": "IR-ONPREM-INTEGRATION-RUNTIME",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}
