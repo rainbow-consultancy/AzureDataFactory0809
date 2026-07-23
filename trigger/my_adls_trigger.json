@@ -8,6 +8,9 @@
 				"pipelineReference": {
 					"referenceName": "PL_EVENT_BASED_FILE_INGESTION",
 					"type": "PipelineReference"
+				},
+				"parameters": {
+					"p_filename": "@triggerBody().folderPath"
 				}
 			}
 		],
