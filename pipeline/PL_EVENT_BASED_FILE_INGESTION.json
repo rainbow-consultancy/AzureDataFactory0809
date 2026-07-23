@@ -5,7 +5,14 @@
 			{
 				"name": "Copy File",
 				"type": "Copy",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -62,11 +69,33 @@
 						}
 					}
 				]
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "trigger_output",
+					"value": {
+						"value": "@pipeline().parameters.p_filename",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"parameters": {
 			"p_filename": {
 				"type": "string"
+			}
+		},
+		"variables": {
+			"trigger_output": {
+				"type": "String"
 			}
 		},
 		"annotations": []
