@@ -50,7 +50,13 @@
 				"inputs": [
 					{
 						"referenceName": "DS_SRC_EVENT_BASED_CSV",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"SrcFileName": {
+								"value": "@pipeline().parameters.p_filename",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
@@ -58,7 +64,11 @@
 						"referenceName": "DS_EVENT_BASED_TRGT_CSV",
 						"type": "DatasetReference",
 						"parameters": {
-							"FolderName": "OutputCsvFiles"
+							"FolderName": "OutputCsvFiles",
+							"FileName": {
+								"value": "@pipeline().parameters.p_filename",
+								"type": "Expression"
+							}
 						}
 					}
 				]
