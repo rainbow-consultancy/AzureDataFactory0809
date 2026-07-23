@@ -35,6 +35,12 @@
 		"LS_ONPREM_SQL_SERVER_properties_typeProperties_userName": {
 			"value": "sandeep"
 		},
+		"my_adls_trigger_properties_PL_EVENT_BASED_FILE_INGESTION_parameters_p_filename": {
+			"value": "@last(split(triggerBody().fileName,'/'))"
+		},
+		"my_adls_trigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/a8c62c57-2636-40f5-a753-24c196a04e1f/resourceGroups/rg-qct-bangalore/providers/Microsoft.Storage/storageAccounts/quantcloudstorageaccount"
+		},
 		"containerUri": {
 			"value": ""
 		},
