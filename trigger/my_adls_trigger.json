@@ -10,7 +10,7 @@
 					"type": "PipelineReference"
 				},
 				"parameters": {
-					"p_filename": "@triggerBody().folderPath"
+					"p_filename": "@last(split(triggerBody().fileName,'/'))"
 				}
 			}
 		],
