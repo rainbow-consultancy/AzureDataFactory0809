@@ -1,0 +1,52 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_FLOW_TALLEST_PEOPLE",
+						"type": "DatasetReference"
+					},
+					"name": "src"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DS_FLOW_TARGET_TALLEST_PEOPLE",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "derivealivecol"
+				},
+				{
+					"name": "sort1"
+				}
+			],
+			"scriptLines": [
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: true,",
+				"     inferDriftedColumnTypes: true,",
+				"     ignoreNoFilesFound: false) ~> src",
+				"src derive(is_alive = iif(byName('is_alive') == '0', 'false', 'true')) ~> derivealivecol",
+				"derivealivecol sort(desc(byName('height_cm'), true)) ~> sort1",
+				"sort1 sink(allowSchemaDrift: true,",
+				"     validateSchema: true,",
+				"     partitionFileNames:['tallest_people_new'],",
+				"     truncate: true,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink1"
+			]
+		}
+	}
+}
