@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "dataflow1",
+						"referenceName": "DF_SORT_TALLEST_PEOPLE",
 						"type": "DataFlowReference"
 					},
 					"compute": {

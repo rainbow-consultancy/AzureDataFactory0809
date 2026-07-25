@@ -1,5 +1,5 @@
 {
-	"name": "dataflow1",
+	"name": "DF_SORT_TALLEST_PEOPLE",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -30,7 +30,23 @@
 				}
 			],
 			"scriptLines": [
-				"source(allowSchemaDrift: true,",
+				"source(output(",
+				"          id as short,",
+				"          name as string,",
+				"          gender as string,",
+				"          country as string,",
+				"          continent as string,",
+				"          height_cm as short,",
+				"          height_ft_in as string,",
+				"          weight_kg as short,",
+				"          birth_year as short,",
+				"          death_year as short,",
+				"          lifespan as short,",
+				"          occupation as string,",
+				"          medical_condition as string,",
+				"          is_alive as boolean",
+				"     ),",
+				"     allowSchemaDrift: true,",
 				"     validateSchema: true,",
 				"     inferDriftedColumnTypes: true,",
 				"     ignoreNoFilesFound: false) ~> src",
